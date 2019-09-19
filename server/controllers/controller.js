@@ -8,13 +8,17 @@ module.exports = {
     },
 
     add_product: function(req, res) {
-        console.log(req.body);
+        /*
+        const the_message = new Product();
+        the_message.title = req.body.title;
+        the_message.price = req.body.price;
+        the_message.save()
+        */
         Product.create(req.body,{runValidators: true})
             .then(data => {
                 console.log("I made a object");
                 res.json(data)
-            }
-            )
+            })
             .catch(err => {
                 console.log("I had an error");
                 res.json(err);
